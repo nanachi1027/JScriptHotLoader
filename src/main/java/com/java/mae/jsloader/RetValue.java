@@ -20,11 +20,12 @@ public class RetValue {
     private String retString = "";
 
     // get & set
-    public boolean isRetBoolean() {
+    public boolean getRetBoolean() {
         return retBoolean;
     }
 
     public void setRetBoolean(boolean retBoolean) {
+        this.isValueInit = true;
         this.retBoolean = retBoolean;
     }
 
@@ -33,6 +34,7 @@ public class RetValue {
     }
 
     public void setRetByte(byte retByte) {
+        this.isValueInit = true;
         this.retByte = retByte;
     }
 
@@ -41,6 +43,7 @@ public class RetValue {
     }
 
     public void setRetChar(char retChar) {
+        this.isValueInit = true;
         this.retChar = retChar;
     }
 
@@ -49,6 +52,7 @@ public class RetValue {
     }
 
     public void setRetShort(short retShort) {
+        this.isValueInit = true;
         this.retShort = retShort;
     }
 
@@ -57,6 +61,7 @@ public class RetValue {
     }
 
     public void setRetInt(int retInt) {
+        this.isValueInit = true;
         this.retInt = retInt;
     }
 
@@ -65,6 +70,7 @@ public class RetValue {
     }
 
     public void setRetLong(long retLong) {
+        this.isValueInit = true;
         this.retLong = retLong;
     }
 
@@ -73,6 +79,7 @@ public class RetValue {
     }
 
     public void setRetFloat(float retFloat) {
+        this.isValueInit = true;
         this.retFloat = retFloat;
     }
 
@@ -81,6 +88,7 @@ public class RetValue {
     }
 
     public void setRetDouble(double retDouble) {
+        this.isValueInit = true;
         this.retDouble = retDouble;
     }
 
@@ -89,6 +97,7 @@ public class RetValue {
     }
 
     public void setRetString(String retString) {
+        this.isValueInit = true;
         this.retString = retString;
     }
 
@@ -97,6 +106,7 @@ public class RetValue {
     }
 
     public void setValueInit(boolean valueInit) {
+        this.isValueInit = true;
         isValueInit = valueInit;
     }
 
@@ -107,7 +117,7 @@ public class RetValue {
      * @param retType return value type
      * @return ret value which wraps corresponding type obj
      */
-    public void transferRetValue(Object obj, RetValueTypeEnum retType) throws Exception {
+    public void transferRetValue(Object obj, RetTypeEnum retType) throws Exception {
         String retString = String.valueOf(obj);
 
         switch (retType) {

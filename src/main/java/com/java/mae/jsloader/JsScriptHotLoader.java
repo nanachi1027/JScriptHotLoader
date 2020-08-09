@@ -38,7 +38,7 @@ public class JsScriptHotLoader {
      * @return return value of the function execution result.
      */
     public RetValue execJScriptFunction(String jscriptDir, Map<String, Object> engineContext,
-                                        String execFuncName, RetValueTypeEnum retType) {
+                                        String execFuncName, RetTypeEnum retType) {
         ScriptEngine jsEngineHandler = getJScriptEngine(jscriptDir, engineContext);
         RetValue retValue = execFunc(jscriptDir, jsEngineHandler, execFuncName, retType);
         return retValue;
@@ -100,10 +100,11 @@ public class JsScriptHotLoader {
      * @return exec func's return value.
      */
     private RetValue execFunc(String jscriptDir, ScriptEngine jsEngine, String execFuncName,
-                              RetValueTypeEnum retType) {
+                              RetTypeEnum retType) {
         RetValue retValue = new RetValue();
         if (jsEngine == null) return retValue;
         try {
+            LOGGER.info(String.format("Exec function: %s, retType: %s", execFuncName, retType.getType()));
             jsEngine.put("functionName", execFuncName);
             Invocable invokeFunc = (Invocable) jsEngine;
             Object retObj = invokeFunc.invokeFunction(execFuncName);
@@ -117,7 +118,6 @@ public class JsScriptHotLoader {
         }
         return retValue;
     }
-
 
     // --- static methods ---
     public static JsScriptHotLoader getInstance() {

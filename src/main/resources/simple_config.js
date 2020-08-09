@@ -14,10 +14,13 @@
 */
 
 
-// sparkCoresMax, spark.cores.max
-// input: spark.cores.max.enabled: boolean
+// spark param: spark.cores.max, represented by 'sparkCoresMaxEnabled' this global param
+// input: sparkCoresMaxEnabled: boolean
 // output: spark.cores.max:int
 function sparkCoresMax() {
-    // 1. 从 env_context 中抽取 boolean spark.cores.max.enabled boolean 数值
-    // 2. true: 返回最优数值, 没有该变量或是该变量值为 false: 返回 0
+    if (sparkCoresMaxEnabled) {
+        return 20;
+    } else {
+        return 0;
+    }
 }
